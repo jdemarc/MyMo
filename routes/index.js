@@ -6,6 +6,10 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'MyMo' });
 });
 
+router.get('/home', function( req, res, next) {
+  res.render('home', { title: 'MyMo' });
+})
+
 router.get('/auth/google', passport.authenticate(
   'google',
   { scope: ['profile', 'email'] }
@@ -14,7 +18,7 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect : '/users/',
+    successRedirect : '/home',
     failureRedirect : '/'
   }
 ));
