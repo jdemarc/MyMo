@@ -1,0 +1,24 @@
+<%- include('../partials/header') %>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <h4><%= title %></h4>
+    </div>
+
+    <% if (user.workouts.length) { %>
+        <% user.workouts.forEach(function (w) { %>
+            <div class="row">
+                <div class="col-sm">
+                    <%= w.title %>
+                </div>
+                <div class="col-sm">
+                    <%= w.date.toLocaleString(); %>
+                </div>
+            </div>
+       <% }); %>
+    <% } else { %>
+        <h5>No workouts are here!</h5>
+    <% } %>
+</div>
+
+<%- include('../partials/footer') %>
