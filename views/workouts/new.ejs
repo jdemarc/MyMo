@@ -4,29 +4,37 @@
     <div class="row justify-content-center">
         <h3>Add Workout</h3>
     </div>
+    <div class="row justify-content-center align-items-center">
+        <div class="col-sm text-right">
+            TITLE
+        </div>
+        <div class="col-sm">
+            <form action="/workouts" method="POST">
+                <input type="text" name="title" required pattern="\w+" size="10">
+        </div>
+    </div>
 
-    <div class="row justify-content-around text-center">
-        <div class="col-xs">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-sm text-right">
             DATE
         </div>
-        <div class="col-xs">
-            <form action="/workouts" method="POST">
+        <div class="col-sm">
                 <input type="datetime-local" name="date" placeholder="YYYY-MM-DD" required pattern="\d{4}-\d{2}-\d{2}" size="10">
         </div>
     </div>
-    <div class="row justify-content-around text-center">
-        <div class="col-xs">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-sm text-right">
             DURATION
         </div>
-        <div class="col-xs">
+        <div class="col-sm">
             <input type="text" name="duration" placeholder="minute(s)" required pattern="\d+" size="10">
         </div>
     </div>
-    <div class="row justify-content-around text-center">
-        <div class="col-xs">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-sm text-right">
             CALORIES
         </div>
-        <div class="col-xs">
+        <div class="col-sm">
             <input type="text" name="calories" placeholder="0" required pattern="\d+" size="10">
         </div>
     </div>
@@ -35,7 +43,7 @@
 
 
 
-    <div class="row justify-content-center">
+    <div class="row justify-content-center align-items-center">
         <button type="submit" class="btn btn-primary">CONFIRM</button>
         </form>
     </div>
