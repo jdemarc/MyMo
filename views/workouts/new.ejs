@@ -1,9 +1,45 @@
 <%- include('../partials/header') %>
 
-<div class=container>
-    <div class="row">
+<div class="container">
+    <div class="row justify-content-center">
         <h3>Add Workout</h3>
     </div>
+
+    <div class="row justify-content-around text-center">
+        <div class="col-xs">
+            DATE
+        </div>
+        <div class="col-xs">
+            <form action="/workouts" method="POST">
+                <input type="datetime-local" name="date" placeholder="YYYY-MM-DD" required pattern="\d{4}-\d{2}-\d{2}" size="10">
+        </div>
+    </div>
+    <div class="row justify-content-around text-center">
+        <div class="col-xs">
+            DURATION
+        </div>
+        <div class="col-xs">
+            <input type="text" name="duration" placeholder="minute(s)" required pattern="\d+" size="10">
+        </div>
+    </div>
+    <div class="row justify-content-around text-center">
+        <div class="col-xs">
+            CALORIES
+        </div>
+        <div class="col-xs">
+            <input type="text" name="calories" placeholder="0" required pattern="\d+" size="10">
+        </div>
+    </div>
+
+    <hr/>
+
+
+
+    <div class="row justify-content-center">
+        <button type="submit" class="btn btn-primary">CONFIRM</button>
+        </form>
+    </div>
 </div>
+
 
 <%- include('../partials/footer') %>

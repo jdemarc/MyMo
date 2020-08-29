@@ -10,12 +10,13 @@ const workoutSchema = new Schema ({
 
     calories: {
         type: Number,
+        match: /\d+/,
         default: 0
     },
 
     duration: {
-        hours: Number,
-        minutes: Number,
+        type: Number,
+        match: /\d+/,
         default: 0
     },
 
