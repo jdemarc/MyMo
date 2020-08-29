@@ -14,11 +14,13 @@ function index (req, res) {
     })
 }
 
+// After adding a workout, the user should be forwarded to a page where
+// he or she can add the exercises.
+// Currently, they are redirected to the list of their workouts.
 function addWorkout (req, res) {
-
     req.user.workouts.push(req.body);
     req.user.save(function(err) {
-        res.redirect('/home');
+        res.redirect('/users/index');
     });
 }
 
