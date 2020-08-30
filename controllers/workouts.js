@@ -21,8 +21,8 @@ function create(req, res) {
 }
 
 function show(req, res) {
-    Workout.findById(req.params.id, function (err, workout) {
+    Workout.findById(req.params.id, function (err, workouts) {
 
-        res.render('workouts/show', { workout, title: 'Workout Details'} );
+        res.render('user/index', { workouts, title: 'Workout Details'} );
     })
 }
