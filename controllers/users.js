@@ -7,6 +7,7 @@ module.exports = {
     // delWorkout,
 }
 
+// When clicking the 'View Workouts' link, render the user's workouts at users/index
 function index (req, res) {
     Workout.find( {}, function (err, workouts) {
         res.render('users/index', { workouts, title: 'My Workouts'});
