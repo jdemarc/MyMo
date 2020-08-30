@@ -4,6 +4,7 @@ const workoutsCtrl = require('../controllers/workouts');
 
 router.get('/new', isLoggedIn, workoutsCtrl.new);
 router.post('/', workoutsCtrl.create);
+router.get('/:id/', workoutsCtrl.show);
 router.delete('/:id', workoutsCtrl.delete);
 
 function isLoggedIn(req, res, next) {

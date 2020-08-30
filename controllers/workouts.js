@@ -14,6 +14,7 @@ function newWorkout(req, res) {
 
 // When clicking the confirm button on workouts/new, create a workout.
 function create(req, res) {
+    console.log("hitting create");
 
     //SET DEFAULTS HERE
     // if (!(req.body.date)) delete req.body.date
@@ -24,14 +25,14 @@ function create(req, res) {
     workout.save(function(err) {
         if (err) return res.redirect('/workouts/new');
 
-        res.render('workouts/show', { title: 'Add Exercise(s)', workout });
+        res.redirect(`/workouts/${workout._id}`);
     })
 }
 
 // This function will render the workout and allow user to add exercises.
 function show(req, res) {
-    Workout.findById(req.params.id, function (err, workouts) {
-        res.render('user/index', { workouts, title: 'Workout Details'} );
+    Workout.findById(req.params.id, function (err, workout) {
+        res.render('workouts/show', { workout, title: 'Workout Details'} );
     })
 }
 

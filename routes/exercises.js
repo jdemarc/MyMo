@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var exercisesCtrl = require('../controllers/exercises');
 
-router.get('/workouts/:id/exercises/new', exercisesCtrl.new);
+router.post('/workouts/:id/exercises', exercisesCtrl.create);
+router.delete('/exercises/:id', exercisesCtrl.delete);
 
 module.exports = router;
