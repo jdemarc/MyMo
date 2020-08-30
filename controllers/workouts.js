@@ -4,7 +4,8 @@ module.exports = {
     new: newWorkout,
     create,
     show,
-    delete: delWorkout
+    delete: delWorkout,
+    editWorkout
 }
 
 // When clicking the "add workout" link, render the workouts/new page.
@@ -40,5 +41,11 @@ function show(req, res) {
 function delWorkout(req, res) {
     Workout.findByIdAndDelete(req.params.id, function (err) {
         res.redirect('/users/index');
+    });
+}
+
+function editWorkout(req, res) {
+    Workout.findById(req.params.id, function(err, workout) {
+        res.render('workouts/edit', { title: 'Edit Workout' });
     });
 }
