@@ -9,7 +9,7 @@
             TITLE
         </div>
         <div class="col-sm">
-            <form action="/workouts" method="POST">
+            <form action="/workouts/" method="POST">
                 <input type="text" name="title" required pattern="\w+" size="10">
         </div>
     </div>
@@ -19,7 +19,7 @@
             DATE
         </div>
         <div class="col-sm">
-                <input type="datetime-local" name="date" placeholder="YYYY-MM-DD" required pattern="\d{4}-\d{2}-\d{2}" size="10">
+                <input type="datetime-local" name="date" placeholder="YYYY-MM-DD HH:MM" required pattern="\d{4}-\d{2}-\d{2} \d{1, 2}:[0-6]{1, 2}" size="10">
         </div>
     </div>
     <div class="row justify-content-center align-items-center">

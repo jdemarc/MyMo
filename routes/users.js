@@ -3,8 +3,6 @@ var router = express.Router();
 const usersCtrl = require('../controllers/users');
 
 router.get('/users/index', isLoggedIn, usersCtrl.index);
-router.post('/workouts', isLoggedIn, usersCtrl.addWorkout);
-router.delete('/workouts/:id', isLoggedIn, usersCtrl.delWorkout)
 
 function isLoggedIn(req, res, next) {
   if ( req.isAuthenticated() ) return next();

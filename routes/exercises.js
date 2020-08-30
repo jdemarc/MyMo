@@ -2,9 +2,6 @@ var express = require('express');
 var router = express.Router();
 var exercisesCtrl = require('../controllers/exercises');
 
-/* GET users listing. */
-router.get('/home', function(req, res, next) {
-  res.send('respond with a resource');
-});
+router.get('/workouts/:id/exercises/new', exercisesCtrl.new);
 
 module.exports = router;
