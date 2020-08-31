@@ -13,8 +13,8 @@ module.exports = {
 function index(req, res) {
     Workout.find({}, function (err, workouts) {
         console.log(workouts);
-        res.render('workouts/index', { workouts, title: 'My Workouts'});
-    })
+            res.render('workouts/index', { workouts, title: 'My Workouts'});
+    });
 }
 
 // When clicking the "add workout" link, render the workouts/new page.
@@ -76,10 +76,6 @@ function edit(req, res) {
 }
 
 function update(req, res) {
-    console.log('hitting update');
-
-    console.log(req.body);
-    console.log(req.params);
     Workout.findByIdAndUpdate(req.params.id, 
         {   title: req.body.title,
             date: req.body.date,
@@ -93,6 +89,8 @@ function update(req, res) {
             res.redirect('/workouts/index');
     });
 }
+
+//-----------------------------------------------------------------------------------
 
 // Function to generate current date and time
 function getCurrentDateTime() {
