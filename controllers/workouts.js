@@ -20,13 +20,18 @@ function index(req, res) {
 
 // When clicking the "add workout" link, render the workouts/new page.
 function newWorkout(req, res) {
-    res.render('workouts/new', { title: 'New Workout'});
+    const workout = new Workout();
+    const dt = workout.date;
+    const workoutDate = dt.toISOString().slice(0, 16);
+
+    res.render('workouts/new', { workoutDate, title: 'New Workout'});
 }
 
 // When clicking the confirm button on workouts/new, create a workout.
 function create(req, res) {
     //SET DEFAULTS HERE
-    // if (!(req.body.date)) delete req.body.date
+    //If no date is entered, default to current date and time.
+    if (!(req.body.date)) delete req.body.date
     // if (!(req.body.duration)) delete req.body.duration
 
     req.body.user = req.user.id;
