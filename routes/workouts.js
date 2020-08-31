@@ -2,11 +2,14 @@ var express = require('express');
 var router = express.Router();
 const workoutsCtrl = require('../controllers/workouts');
 
+//TODO: Add isLoggedIn?
+
 router.get('/index', workoutsCtrl.index);
 router.get('/new', isLoggedIn, workoutsCtrl.new);
 router.post('/', workoutsCtrl.create);
 router.get('/:id', workoutsCtrl.show);
-router.get('/:id/edit', workoutsCtrl.editWorkout);
+router.get('/:id/edit', workoutsCtrl.edit);
+router.put('/:id', workoutsCtrl.update);
 router.delete('/:id', workoutsCtrl.delete);
 
 function isLoggedIn(req, res, next) {

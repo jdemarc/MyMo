@@ -6,7 +6,8 @@ module.exports = {
     create,
     show,
     delete: delWorkout,
-    editWorkout
+    edit,
+    update
 }
 
 function index(req, res) {
@@ -55,8 +56,12 @@ function delWorkout(req, res) {
     });
 }
 
-function editWorkout(req, res) {
+function edit(req, res) {
     Workout.findById(req.params.id, function(err, workout) {
-        res.render('workouts/edit', { title: 'Edit Workout' });
+        res.render(`workouts/${workout._id}/edit`, { workout, title: 'Edit Workout' });
     });
+}
+
+function update(req, res) {
+
 }
