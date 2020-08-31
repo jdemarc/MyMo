@@ -20,19 +20,25 @@ function index(req, res) {
 
 // When clicking the "add workout" link, render the workouts/new page.
 function newWorkout(req, res) {
-    const workout = new Workout();
-    const dt = workout.date;
-    const workoutDate = dt.toISOString().slice(0, 16);
+    const workoutDate = getCurrentDateTime();
 
     res.render('workouts/new', { workoutDate, title: 'New Workout'});
 }
 
 // When clicking the confirm button on workouts/new, create a workout.
 function create(req, res) {
-    //SET DEFAULTS HERE
+
+    //If no title is entered, default to a random title.
+    if (!(req.body.title)) delete req.body.title
+
     //If no date is entered, default to current date and time.
     if (!(req.body.date)) delete req.body.date
-    // if (!(req.body.duration)) delete req.body.duration
+
+    //If no duration is entered, default to 30.
+    if (!(req.body.duration)) delete req.body.duration
+
+    //If no calories are entered, default to 0.
+    if (!(req.body.calories)) delete req.body.calories
 
     req.body.user = req.user.id;
     const workout = new Workout(req.body);
@@ -63,8 +69,10 @@ function delWorkout(req, res) {
 
 // Renders edit.ejs
 function edit(req, res) {
+    const currentDate = getCurrentDateTime();
+
     Workout.findById(req.params.id, function(err, workout) {
-        res.render('workouts/edit', { workout, title: 'Edit Workout' });
+        res.render('workouts/edit', { workout, currentDate, title: 'Edit Workout' });
     });
 }
 
@@ -85,5 +93,11 @@ function update(req, res) {
         
             res.redirect('/workouts/index');
     });
+}
 
+// Function to generate current date and time
+function getCurrentDateTime() {
+    const workout = new Workout();
+    const dt = workout.date;
+    return dt.toISOString().slice(0, 16);
 }

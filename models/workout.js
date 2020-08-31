@@ -18,24 +18,26 @@ const exerciseSchema = new Schema ({
 
 const workoutSchema = new Schema ({
     title: {
-        type: String
+        type: String,
+        default: 'Workout X'
     },
 
     date: {
         type: Date,
-        default: Date.now,
-    },
-
-    calories: {
-        type: Number,
-        match: /\d+/,
-        default: 75
+        // This converts UTC to EST.
+        default: () => new Date(+new Date() - 4*60*60*1000)
     },
 
     duration: {
         type: Number,
         match: /\d+/,
         default: 30
+    },
+
+    calories: {
+        type: Number,
+        match: /\d+/,
+        default: 0
     },
 
     user: {

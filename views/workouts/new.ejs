@@ -9,7 +9,6 @@
             TITLE
         </div>
         <div class="col-sm">
-            <!-- -->
             <form action="/workouts" method="POST">
                 <input type="text" name="title" size="10">
         </div>
@@ -20,7 +19,8 @@
             DATE
         </div>
         <div class="col-sm">
-                <input type="datetime-local" name="date" size="15" value="<%= workoutDate %>">
+                <input type="datetime-local" name="date" required pattern="(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})"
+                size="15" value="<%= workoutDate %>">
         </div>
     </div>
     <div class="row justify-content-center align-items-center">
@@ -28,7 +28,7 @@
             DURATION
         </div>
         <div class="col-sm">
-            <input type="text" name="duration" placeholder="minute(s)" required pattern="\d+" size="10">
+            <input type="text" name="duration" placeholder="minute(s)" required pattern="\d+" size="10" value="30">
         </div>
     </div>
     <div class="row justify-content-center align-items-center">
@@ -36,7 +36,7 @@
             CALORIES
         </div>
         <div class="col-sm">
-            <input type="text" name="calories" placeholder="0" required pattern="\d+" size="10">
+            <input type="text" name="calories" placeholder="0" required pattern="\d+" size="10" value="0">
         </div>
     </div>
 

@@ -12,28 +12,28 @@
     <div class="row">
         <div class="col-sm">Title:</div>
         <div class="col-sm">
-            <input type="text" name="title" value="yellow">
+            <input type="text" name="title" required pattern="\w+">
         </div>
     </div>
 
     <div class="row">
         <div class="col-sm">Date</div>
         <div class="col-sm">
-            <input type="datetime-local" name="date" value="1955-02-12">
+            <input type="datetime-local" name="date" required pattern="(\d{4})-(\d{2})-(\d{1, 2})T(\d{2}):(\d{2})" value="<%= currentDate %>">
         </div>
     </div>
 
     <div class="row">
         <div class="col-sm">Duration</div>
         <div class="col-sm">
-            <input type="text" name="duration" value="12">
+            <input type="text" name="duration" required pattern="\d+" value="30">
         </div>
     </div>
 
     <div class="row">
         <div class="col-sm">Calories</div>
         <div class="col-sm">
-            <input type="text" name="calories" value="141">
+            <input type="text" name="calories" required pattern="\d+" value="0">
         </div>
     </div>
 
