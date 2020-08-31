@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 const usersCtrl = require('../controllers/users');
 
-router.get('/users/index', isLoggedIn, usersCtrl.index);
 
 function isLoggedIn(req, res, next) {
   if ( req.isAuthenticated() ) return next();
@@ -10,3 +9,5 @@ function isLoggedIn(req, res, next) {
 }
 
 module.exports = router;
+
+// MAY NOT NEED THIS AT ALL

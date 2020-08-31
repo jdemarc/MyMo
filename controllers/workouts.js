@@ -11,9 +11,8 @@ module.exports = {
 }
 
 function index(req, res) {
-    Workout.find({})
-    .populate('user.id').exec(function (err, workouts) {
-        //console.log(workouts);
+    Workout.find({}, function (err, workouts) {
+        console.log(workouts);
         res.render('workouts/index', { workouts, title: 'My Workouts'});
     })
 }
