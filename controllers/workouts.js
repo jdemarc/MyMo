@@ -10,9 +10,8 @@ module.exports = {
 }
 
 function index(req, res) {
-    console.log('hitting workouts.index');
     Workout.find({})
-    .populate('user').exec(function (err, workouts) {
+    .populate('user.id').exec(function (err, workouts) {
         console.log(workouts);
         res.render('workouts/index', { workouts, title: 'My Workouts'});
     })
@@ -28,15 +27,17 @@ function create(req, res) {
     //SET DEFAULTS HERE
     // if (!(req.body.date)) delete req.body.date
     // if (!(req.body.duration)) delete req.body.duration
-    console.log (req.body);
 
+    req.body.user = req.user.id;
     const workout = new Workout(req.body);
-    console.log(workout);
 
     workout.save(function(err) {
-        if (err) return res.redirect('/workouts/new');
+        if (err) {
+            console.log('Error.')
+            return res.redirect('/workouts/new');
+        }
 
-        res.redirect(`/workouts/index`);
+        res.redirect(`/workouts/${workout._id}`);
     })
 }
 
