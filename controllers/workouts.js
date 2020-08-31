@@ -13,7 +13,7 @@ module.exports = {
 function index(req, res) {
     Workout.find({})
     .populate('user.id').exec(function (err, workouts) {
-        console.log(workouts);
+        //console.log(workouts);
         res.render('workouts/index', { workouts, title: 'My Workouts'});
     })
 }
@@ -66,8 +66,19 @@ function edit(req, res) {
 function update(req, res) {
     console.log('hitting update');
 
-    res.redirect('/workouts/index');
-    // Workout.findByIdAndUpdate(req.params.id, function (err, workout) {
+    console.log(req.body);
+    console.log(req.params);
+    Workout.findByIdAndUpdate(req.params.id, 
+        {   title: req.body.title,
+            date: req.body.date,
+            duration: req.body.duration,
+            calories: req.body.calories,
+        }, function (err) {
+            if (err) console.log('Failed to update workout.');
 
-    // })
+            console.log('Workout successfully updated.')
+        
+            res.redirect('/workouts/index');
+    });
+
 }
