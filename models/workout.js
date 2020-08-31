@@ -38,6 +38,11 @@ const workoutSchema = new Schema ({
         default: 30
     },
 
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
+
     exercises: [exerciseSchema]
 });
 

@@ -7,11 +7,7 @@ const userSchema = new Schema({
     email: String,
     avatar: String,
     googleId: String,
-
-    workouts: {
-        type: Schema.Types.ObjectId,
-        ref: 'Workout'
-    }
+    
   }, {
     timestamps: true
 });

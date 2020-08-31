@@ -10,6 +10,7 @@ router.get('/home', function( req, res, next) {
   res.render('home', { title: 'MyMo' });
 });
 
+// OAuth Routes
 router.get('/auth/google', passport.authenticate(
   'google',
   { scope: ['profile', 'email'] }
