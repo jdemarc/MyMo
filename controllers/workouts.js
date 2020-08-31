@@ -56,12 +56,18 @@ function delWorkout(req, res) {
     });
 }
 
+// Renders edit.ejs
 function edit(req, res) {
     Workout.findById(req.params.id, function(err, workout) {
-        res.render(`workouts/${workout._id}/edit`, { workout, title: 'Edit Workout' });
+        res.render('workouts/edit', { workout, title: 'Edit Workout' });
     });
 }
 
 function update(req, res) {
+    console.log('hitting update');
 
+    res.redirect('/workouts/index');
+    // Workout.findByIdAndUpdate(req.params.id, function (err, workout) {
+
+    // })
 }

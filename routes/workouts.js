@@ -7,9 +7,9 @@ const workoutsCtrl = require('../controllers/workouts');
 router.get('/index', workoutsCtrl.index);
 router.get('/new', isLoggedIn, workoutsCtrl.new);
 router.post('/', workoutsCtrl.create);
+router.put('/:id', workoutsCtrl.update);
 router.get('/:id', workoutsCtrl.show);
 router.get('/:id/edit', workoutsCtrl.edit);
-router.put('/:id', workoutsCtrl.update);
 router.delete('/:id', workoutsCtrl.delete);
 
 function isLoggedIn(req, res, next) {
