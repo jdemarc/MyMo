@@ -3,13 +3,14 @@ const ObjectId = mongoose.Types.ObjectId;
 const Workout = require('../models/workout');
 
 module.exports = {
-    showStats
+    showStats,
+    search
 }
 
-// This function aggregates stats for individual users.
-
+// Shows user's stats based on aggregation of workouts.
 function showStats(req, res) {
 
+    // _id: must be null for $group
     Workout.aggregate([
         { $match: { user: ObjectId(req.user.id) } },
         { $group: { _id: null, durationSum: { $sum: "$duration" }, calorieSum: { $sum: "$calories"},
@@ -17,8 +18,6 @@ function showStats(req, res) {
 
     ], function (err, stats) {
         if (err) console.log('Error');
-
-        console.log(stats);
 
         let totalDuration = convertTime(stats[0].durationSum);
         let totalCalories = stats[0].calorieSum;
@@ -28,6 +27,12 @@ function showStats(req, res) {
     });
 };
 
+function search(req, res) {
+    console.log(req.query);
+
+    console.log('hitting search');    
+
+}
 //-------------------------------------------------------------------------------------
 
 function convertTime(mins) {
