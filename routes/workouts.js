@@ -4,7 +4,7 @@ const workoutsCtrl = require('../controllers/workouts');
 
 //TODO: Add isLoggedIn?
 
-router.get('/index', workoutsCtrl.index);
+router.get('/index', isLoggedIn, workoutsCtrl.index);
 router.get('/new', isLoggedIn, workoutsCtrl.new);
 router.post('/', workoutsCtrl.create);
 router.put('/:id', workoutsCtrl.update);
