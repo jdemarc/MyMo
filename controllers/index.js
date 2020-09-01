@@ -36,7 +36,13 @@ function convertTime(mins) {
 
     let time = 0;
 
-    (!hours) ? time = `${minutes} minutes` : time = `${hours} hours, ${minutes} minutes`;
+    let hrString = 'hours';
+    let minString = 'minutes';
+
+    if (hours === 1) hrString = 'hour';
+    if (minutes === 1) minString = 'minute';
+
+    (!hours) ? time = `${minutes} ${minString}` : time = `${hours} ${hrString}, ${minutes} ${minString}`;
 
     return time;
 }
