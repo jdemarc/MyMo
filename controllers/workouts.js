@@ -35,7 +35,7 @@ function newWorkout(req, res) {
 function create(req, res) {
 
     //If no title is entered, default to a random title.
-    if (!(req.body.title)) delete req.body.title
+    if (!(req.body.name)) delete req.body.name
 
     //If no date is entered, default to current date and time.
     if (!(req.body.date)) delete req.body.date
@@ -84,7 +84,7 @@ function edit(req, res) {
 
 function update(req, res) {
     Workout.findByIdAndUpdate(req.params.id, 
-        {   title: req.body.title,
+        {   name: req.body.title,
             date: req.body.date,
             duration: req.body.duration,
             calories: req.body.calories,
@@ -100,23 +100,15 @@ function update(req, res) {
 function search(req, res) {
     console.log(req.query);
 
-    let modelQuery = req.query.title ? { title: new RegExp(req.query.title, 'i')} : {};
-    // Default to sorting by name
-
+    let modelQuery = req.query.name ? { name: new RegExp(req.query.name, 'i')} : {};
 
     let sortKey = 'title';
 
     Workout.find(modelQuery, function(err, foundWorkouts) {
-      if (err) return next(err);
-
-      console.log(foundWorkouts);
-
-      // Passing search values, name & sortKey, for use in the EJS
-    //   res.render('students/index', { students, name: req.query.name, sortKey });
-      
-      res.render('workouts/search', { foundWorkouts, title: 'Search Results'});
+        if (err) return next(err);
+            res.render('workouts/search', { foundWorkouts, title: 'Search Results'});
+        
     });
-
 }
 //-----------------------------------------------------------------------------------
 

@@ -8,7 +8,7 @@
     <% if (foundWorkouts.length) { %>
         <% foundWorkouts.forEach(function (w) { %>
             <div class="row justify-contents-center">
-                <div class="col-sm"> <%= w.title %> </div>
+                <div class="col-sm"> <%= w.name %> </div>
                 <div class="col-sm"> <%= w.date.toLocaleString() %></div>
                 <div class="col-sm"> <a href="/workouts/<%= w.id %>" class="btn btn-dark" role="button"> DETAILS </a> </div>
             </div>

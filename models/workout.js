@@ -17,7 +17,7 @@ const exerciseSchema = new Schema ({
 });
 
 const workoutSchema = new Schema ({
-    title: {
+    name: {
         type: String,
         // Change X to a random number.
         default: 'Workout X'

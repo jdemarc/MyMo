@@ -18,11 +18,17 @@ function showStats(req, res) {
     ], function (err, stats) {
         if (err) console.log('Error');
 
-        let totalDuration = convertTime(stats[0].durationSum);
-        let totalCalories = stats[0].calorieSum;
-        let totalWorkouts = stats[0].workoutSum;
+        let totalDuration = 0,
+            totalCalories = 0,
+            totalWorkouts = 0;
 
-        res.render('home', { title: 'MyMo', totalDuration, totalCalories, totalWorkouts });
+        if (stats.length) {
+            totalDuration = convertTime(stats[0].durationSum);
+            totalCalories = stats[0].calorieSum;
+            totalWorkouts = stats[0].workoutSum;
+        }
+
+        res.render('home', { title: 'MyMo', stats, totalDuration, totalCalories, totalWorkouts });
     });
 };
 

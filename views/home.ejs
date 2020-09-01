@@ -4,6 +4,7 @@
     STATS
 </div>
 
+<% if (stats) { %>
 <div class="row justify-content-center">
     <div class="col-sm">Workouts</div>
     <div class="col-sm"><%= totalWorkouts %></div>
@@ -18,6 +19,11 @@
     <div class="col-sm">Calories</div>
     <div class="col-sm"><%= totalCalories %></div>
 </div>
+<% } else { %>
+    <div class="row">
+        <h5>No stats to render.</h5>
+    </div>
+<% } %>
 
 <ul class="list-group text-center">
     <li class="list-group-item">
@@ -28,7 +34,7 @@
     </li>
     <li class="list-group-item">
         <form class="form-inline justify-content-center" action="/workouts" method="GET">
-            <input class="form-control mr-sm-2" type="search" name="title" placeholder="Search" aria-label="Search">
+            <input class="form-control mr-sm-2" type="search" name="name" placeholder="Search" aria-label="Search">
             <button class="btn btn-dark my-2 my-sm-0" type="submit">
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>

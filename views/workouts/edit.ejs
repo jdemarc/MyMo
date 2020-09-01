@@ -5,14 +5,14 @@
         <h4>Edit Workout</h4>
     </div>
     <div class="row justify-content-center">
-        <h5>"<%= workout.title %>"</h5>
+        <h5>"<%= workout.name %>"</h5>
     </div>
 
     <form action="/workouts/<%= workout._id %>?_method=PUT" method="POST">
     <div class="row">
-        <div class="col-sm">Title:</div>
+        <div class="col-sm">Workout Name:</div>
         <div class="col-sm">
-            <input type="text" name="title" required pattern="\w+">
+            <input type="text" name="name" required pattern="\w+">
         </div>
     </div>
 
