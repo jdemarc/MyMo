@@ -23,7 +23,7 @@ function showStats(req, res) {
             totalWorkouts = 0;
 
         if (stats.length) {
-            totalDuration = convertTime(stats[0].durationSum);
+            totalDuration = stats[0].durationSum;
             totalCalories = stats[0].calorieSum;
             totalWorkouts = stats[0].workoutSum;
         }
@@ -34,19 +34,19 @@ function showStats(req, res) {
 
 //-------------------------------------------------------------------------------------
 
-function convertTime(mins) {
-    let hours = Math.floor(mins/60);
-    let minutes = mins % 60;
+// function convertTime(mins) {
+//     let hours = Math.floor(mins/60);
+//     let minutes = mins % 60;
 
-    let time = 0;
+//     let time = 0;
 
-    let hrString = 'hours';
-    let minString = 'minutes';
+//     let hrString = 'hours';
+//     let minString = 'minutes';
 
-    if (hours === 1) hrString = 'hour';
-    if (minutes === 1) minString = 'minute';
+//     if (hours === 1) hrString = 'hour';
+//     if (minutes === 1) minString = 'minute';
 
-    (!hours) ? time = `${minutes} ${minString}` : time = `${hours} ${hrString}, ${minutes} ${minString}`;
+//     (!hours) ? time = `${minutes} ${minString}` : time = `${hours} ${hrString}, ${minutes} ${minString}`;
 
-    return time;
-}
+//     return time;
+// }

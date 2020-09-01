@@ -1,24 +1,37 @@
 <%- include('./partials/header') %>
 
 <div class="row justify-content-center">
-    STATS
+    PROGRESS
 </div>
 
-<% if (stats) { %>
-<div class="row justify-content-center">
-    <div class="col-sm">Workouts</div>
-    <div class="col-sm"><%= totalWorkouts %></div>
+<% if (stats.length) { %>
+<div class="row justify-content-center"> WORKOUTS
 </div>
 
-<div class="row justify-content-center">
-    <div class="col-sm">Total Time</div>
-    <div class="col-sm"><%= totalDuration %></div>
+    <div class="progress">
+        <div class="progress-bar" role="progressbar"
+        style="width: <%= (totalWorkouts/7)*100 %>%" aria-valuenow="<%= totalWorkouts %>"
+        aria-valuemin="0" aria-valuemax="7"></div>
+    </div>
+
+
+<div class="row justify-content-center">TIME</div>
+
+    <div class="progress">
+        <div class="progress-bar" role="progressbar"
+        style="width: <%= (totalDuration/210)*100 %>%" aria-valuenow="<%= totalDuration %>"
+        aria-valuemin="0" aria-valuemax="210"></div>
+    </div>
+
+<div class="row justify-content-center">CALORIES</div>
 </div>
 
-<div class="row justify-content-center">
-    <div class="col-sm">Calories</div>
-    <div class="col-sm"><%= totalCalories %></div>
+<div class="progress">
+    <div class="progress-bar" role="progressbar"
+    style="width: <%= (totalCalories/1400)*100 %>%" aria-valuemin="0" aria-valuenow="<%= totalCalories %>"
+    aria-valuemax="1400"></div>
 </div>
+
 <% } else { %>
     <div class="row">
         <h5>No stats to render.</h5>
