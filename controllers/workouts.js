@@ -1,4 +1,5 @@
 const Workout = require('../models/workout');
+const User = require('../models/user');
 
 module.exports = {
     index,
@@ -11,10 +12,24 @@ module.exports = {
 }
 
 function index(req, res) {
-    Workout.find({}, function (err, workouts) {
-        console.log(workouts);
+    
+    //Find by user id that is logged in.
+    console.log(req.user.id);
+
+    //Every server update requires login.
+
+    Workout.find( {'user' : req.user.id} , function (err, workouts) {
             res.render('workouts/index', { workouts, title: 'My Workouts'});
     });
+
+    // Workout.find({})
+    // .populate('user').exec(function(err, workouts) {
+    //     User.find({}, function(err, user) {
+    //         console.log(workouts);
+    //         res.render('workouts/index', { workouts, user, title: 'My Workouts'});
+
+    //     });
+    // })
 }
 
 // When clicking the "add workout" link, render the workouts/new page.

@@ -19,12 +19,15 @@ const exerciseSchema = new Schema ({
 const workoutSchema = new Schema ({
     title: {
         type: String,
+        // Change X to a random number.
         default: 'Workout X'
     },
 
     date: {
         type: Date,
         // This converts UTC to EST.
+        // Let client do conversion.
+        // default: Date.now
         default: () => new Date(+new Date() - 4*60*60*1000)
     },
 

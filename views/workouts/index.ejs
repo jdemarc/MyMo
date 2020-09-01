@@ -5,6 +5,7 @@
         <h4><%= title %></h4>
     </div>
 
+    <!-- If the user who is logged in's ID matches the workout's, display those-->
     <% if (workouts.length) { %>
         <% workouts.forEach(function (w) { %>
             <div class="row">
