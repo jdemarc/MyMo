@@ -8,13 +8,20 @@ module.exports = {
     show,
     delete: delWorkout,
     edit,
-    update
+    update,
+    search
 }
 
 function index(req, res) {
     Workout.find( {'user' : req.user.id} , function (err, workouts) {
             res.render('workouts/index', { workouts, title: 'My Workouts'});
     });
+
+    // Workout.findById(req.params.id)
+    // .populate('user').exec(function(err, workouts) {
+    //     console.log(workouts);
+    //     res.render('workouts/index', { workouts, title: 'My Workouts'});
+    // })
 }
 
 // When clicking the "add workout" link, render the workouts/new page.
@@ -90,6 +97,27 @@ function update(req, res) {
     });
 }
 
+function search(req, res) {
+    console.log(req.query);
+
+    let modelQuery = req.query.title ? { title: new RegExp(req.query.title, 'i')} : {};
+    // Default to sorting by name
+
+
+    let sortKey = 'title';
+
+    Workout.find(modelQuery, function(err, foundWorkouts) {
+      if (err) return next(err);
+
+      console.log(foundWorkouts);
+
+      // Passing search values, name & sortKey, for use in the EJS
+    //   res.render('students/index', { students, name: req.query.name, sortKey });
+      
+      res.render('workouts/search', { foundWorkouts, title: 'Search Results'});
+    });
+
+}
 //-----------------------------------------------------------------------------------
 
 // Function to generate current date and time

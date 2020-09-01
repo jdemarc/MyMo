@@ -4,7 +4,6 @@ const Workout = require('../models/workout');
 
 module.exports = {
     showStats,
-    search
 }
 
 // Shows user's stats based on aggregation of workouts.
@@ -27,12 +26,6 @@ function showStats(req, res) {
     });
 };
 
-function search(req, res) {
-    console.log(req.query);
-
-    console.log('hitting search');    
-
-}
 //-------------------------------------------------------------------------------------
 
 function convertTime(mins) {

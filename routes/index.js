@@ -8,7 +8,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/home', indexCtrl.showStats);
-router.get('/workouts', indexCtrl.search);
 
 // OAuth Routes
 router.get('/auth/google', passport.authenticate(
