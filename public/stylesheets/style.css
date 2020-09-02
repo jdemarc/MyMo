@@ -24,9 +24,11 @@ a {
   background: white;
 }
 
-#workout-margin {
-  margin-right: 15px;
+#icons {
+  display: flex;
+  justify-content: center;
 }
+
 .form-title {
   margin-left: 5%
 }
