@@ -10,6 +10,8 @@ module.exports = {
 function showStats(req, res) {
 
     // _id: must be null for $group
+    const user = req.user;
+
     Workout.aggregate([
         { $match: { user: ObjectId(req.user.id) } },
         { $group: { _id: null, durationSum: { $sum: "$duration" }, calorieSum: { $sum: "$calories"},
@@ -28,7 +30,7 @@ function showStats(req, res) {
             totalWorkouts = stats[0].workoutSum;
         }
 
-        res.render('home', { title: 'MyMo', stats, totalDuration, totalCalories, totalWorkouts });
+        res.render('home', { title: 'MyMo', stats, totalDuration, totalCalories, totalWorkouts, user });
     });
 };
 
