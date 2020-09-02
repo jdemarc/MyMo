@@ -8,10 +8,10 @@
     <% if (foundWorkouts.length) { %>
         <% foundWorkouts.forEach(function (w) { %>
             <li class="list-group-item">
-                <div class="row justify-contents-center text-center">
+                <div class="row justify-contents-center" id="first-col-format">
                     <div class="col-sm"> <%= w.name %> </div>
                     <div class="col-sm"> <%= w.date.toLocaleString() %></div>
-                    <div class="col-sm"> <a href="/workouts/<%= w.id %>" class="btn btn-dark" role="button"> DETAILS </a> </div>
+                    <div class="col-sm text-center"> <a href="/workouts/<%= w.id %>" class="btn btn-dark" role="button"> DETAILS </a> </div>
                 </div>
             </li>
             <% }); %>

@@ -8,7 +8,7 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #00adb5;
 }
 
 #main-nav {
@@ -26,9 +26,13 @@ a {
 
 #icons {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
+#first-col-format {
+  text-align: start;
+  margin-left: 5%;
+}
 .form-title {
   margin-left: 5%
 }

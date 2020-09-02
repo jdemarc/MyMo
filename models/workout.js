@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 
 const exerciseSchema = new Schema ({
     name: {
-        type: String
+        type: String,
+        match: /^[a-zA-Z0-9 ]*$/
     },
 
     muscle: {
@@ -20,6 +21,7 @@ const workoutSchema = new Schema ({
     name: {
         type: String,
         // Change X to a random number.
+        match: /^[a-zA-Z0-9 ]*$/,
         default: 'Workout X'
     },
 
