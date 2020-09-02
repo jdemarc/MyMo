@@ -84,7 +84,7 @@ function edit(req, res) {
 
 function update(req, res) {
     Workout.findByIdAndUpdate(req.params.id, 
-        {   name: req.body.title,
+        {   name: req.body.name,
             date: req.body.date,
             duration: req.body.duration,
             calories: req.body.calories,

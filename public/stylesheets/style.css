@@ -20,7 +20,7 @@ a {
   font-size: 24px;
 }
 
-#new-workout-form, #workout-index {
+#new-workout-form, #workout-index, #edit-workout-form {
   background: white;
 }
 
