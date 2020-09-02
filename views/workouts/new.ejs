@@ -1,53 +1,71 @@
 <%- include('../partials/header') %>
 
-<div class="container">
-    <div class="row justify-content-center">
-        <h3>Add Workout</h3>
-    </div>
-    <div class="row justify-content-center align-items-center">
-        <div class="col-sm text-right">
-            NAME
+<ul class="list-group"id="new-workout-form">
+    <li class="list-group-item">
+        <div class="form-title"> <%= title %> </div>
+    </li>
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col-sm text-right">
+                    Name
+            </div>
+            
+            
+            <div class="col-sm">
+                <form action="/workouts" method="POST">
+                <input type="text" name="name" required pattern="\w+"size="15">
+            </div>
         </div>
-        <div class="col-sm">
-            <form action="/workouts" method="POST">
-                <input type="text" name="name" size="10">
-        </div>
-    </div>
+    </li>
 
-    <div class="row justify-content-center align-items-center">
-        <div class="col-sm text-right">
-            DATE
-        </div>
-        <div class="col-sm">
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col-sm text-right">
+                    Date
+            </div>
+            
+            <div class="col-sm">
                 <input type="datetime-local" name="date" required pattern="(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})"
                 size="15" value="<%= workoutDate %>">
+            </div>
         </div>
-    </div>
-    <div class="row justify-content-center align-items-center">
-        <div class="col-sm text-right">
-            DURATION
-        </div>
-        <div class="col-sm">
-            <input type="text" name="duration" placeholder="minute(s)" required pattern="\d+" size="10" value="30">
-        </div>
-    </div>
-    <div class="row justify-content-center align-items-center">
-        <div class="col-sm text-right">
-            CALORIES
-        </div>
-        <div class="col-sm">
-            <input type="text" name="calories" placeholder="0" required pattern="\d+" size="10" value="0">
-        </div>
-    </div>
+    </li>
 
-    <hr/>
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col-sm text-right">
+                    Duration
+            </div>
+            
+            
+            <div class="col-sm">
+                <input type="text" name="duration" placeholder="minute(s)" required pattern="\d+" size="15" value="30">
+            </div>
+        </div>
+    </li>
+
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col-sm text-right">
+                    Calories
+            </div>
+            
+            
+            <div class="col-sm">
+                <input type="text" name="calories" placeholder="0" required pattern="\d+" size="15" value="0">
+            </div>
+        </div>
+    </li>
 
     <!-- Proceed to add exercises -->
-    <div class="row justify-content-center align-items-center">
-        <button type="submit" class="btn btn-dark">CONTINUE</button>
+    <li class="list-group-item text-center">
+        <button type="submit" class="btn btn-dark">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-play" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M10.804 8L5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z"/>
+              </svg>
+        </button>
         </form>
-    </div>
-</div>
-
+    </li>
+</ul>
 
 <%- include('../partials/footer') %>
