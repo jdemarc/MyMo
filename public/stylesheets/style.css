@@ -11,6 +11,9 @@ a {
   color: #00B7FF;
 }
 
+#main-nav {
+  border-radius: 5px;
+}
 
 @media only screen and (max-width: 480px) {
   #logout {
