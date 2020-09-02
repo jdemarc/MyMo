@@ -20,10 +20,13 @@ a {
   font-size: 24px;
 }
 
-#new-workout-form {
+#new-workout-form, #workout-index {
   background: white;
 }
 
+#workout-margin {
+  margin-right: 15px;
+}
 .form-title {
   margin-left: 5%
 }
