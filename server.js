@@ -12,7 +12,6 @@ require('./config/database');
 require('./config/passport');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var workoutsRouter = require('./routes/workouts');
 var exercisesRouter = require('./routes/exercises');
 
@@ -42,7 +41,6 @@ app.use(function (req, res, next) {
 });
 
 app.use('/', indexRouter);
-app.use('/', usersRouter);
 app.use('/workouts', workoutsRouter);
 app.use('/', exercisesRouter);
 
