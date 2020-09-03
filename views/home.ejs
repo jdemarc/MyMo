@@ -1,7 +1,7 @@
 <%- include('./partials/header') %>
 
     <ul class="list-group text-center">
-        <li class="list-group-item" id="user-tag">
+        <div class="container-fluid" id="user-tag">
             <div class="row">
                 <div class="col-sm">
                     <% if (user.avatar) { %>
@@ -15,23 +15,23 @@
                         <%= user.name %>
                 </div>
             </div>
-        </li>
+        </div>
 
         <!-- User Stats -->
         <% if (stats.length) { %>
-            <li class="list-group-item">
+            <div class=container-fluid id="stats">
                 <div class="row justify-content-around text-center">
                     <span class="border border-info">
-                        <div class="col-sm">TIME SPENT<div><%= totalDuration %> </div></div>
+                        <div class="col-sm stats-title">TIME SPENT</div><div><%= totalDuration %> </div>
                     </span>
                     <span class="border border-info">
-                        <div class="col-sm">WORKOUTS<div><%= totalWorkouts %> </div></div>
+                        <div class="col-sm stats-title">WORKOUTS</div><div><%= totalWorkouts %> </div>
                     </span>
                     <span class="border border-info">
-                        <div class="col-sm">CALORIES BURNED<div><%= totalCalories %> </div></div>
+                        <div class="col-sm stats-title">CALORIES</div><div><%= totalCalories %> </div>
                     </span>
                 </div>
-            </li>
+            </div>
         
             <% } else { %>
                     <li class=list-group-item>

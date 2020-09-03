@@ -11,17 +11,34 @@ a {
   color: #00adb5;
 }
 
+a:hover {
+  color: #eeeeee;
+}
+
+.list-group-item > a:hover {
+  color: #393e46;
+  text-decoration: none;
+}
 #main-nav {
   border-radius: 5px;
   background-color: #eeeeee;
 }
 
-#collapibleNavbar {
-  color: black;
+
+#user-tag, #stats {
+  font-size: 24px;
+  background-color: white;
+  padding: 10px 10px;
+  border-radius: 5px 5px 0 0;
 }
 
-#user-tag {
-  font-size: 24px;
+#stats {
+  font-size: 20px;
+  border-radius: 0;
+}
+
+.stats-title {
+  font-weight: bold;
 }
 
 #new-workout-form, #workout-index, #edit-workout-form {
