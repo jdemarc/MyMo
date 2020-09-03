@@ -12,7 +12,8 @@
             <div class="col-sm text-right">Name</div>
             <div class="col-sm">
                 <form action="/workouts/<%= workout._id %>?_method=PUT" method="POST">
-                <input type="text" name="name" required pattern="^[a-zA-Z0-9 ]*$"size="15">
+                <input type="text" name="name" required pattern="^[a-zA-Z0-9 ]*$"
+                value="<%= workout.name %>" size="15">
             </div>
         </div>
     </li>
@@ -31,7 +32,8 @@
         <div class="row">
             <div class="col-sm text-right">Duration</div>
             <div class="col-sm">
-                <input type="text" name="duration" placeholder="minute(s)" required pattern="\d+" size="15" value="30">
+                <input type="text" name="duration" placeholder="minute(s)" required pattern="\d+" 
+                value="<%= workout.duration %>" size="15" value="30">
             </div>
         </div>
     </li>
@@ -40,7 +42,8 @@
         <div class="row">
             <div class="col-sm text-right">Calories</div>
             <div class="col-sm">
-                <input type="text" name="calories" placeholder="0" required pattern="\d+" size="15" value="0">
+                <input type="text" name="calories" placeholder="0" required pattern="\d+"
+                value="<%= workout.calories %>" size="15">
             </div>
         </div>
     </li>

@@ -20,7 +20,7 @@ a:hover {
   text-decoration: none;
 }
 #main-nav {
-  border-radius: 5px;
+  border-radius: 5px 5px 0 0;
   background-color: #eeeeee;
 }
 
@@ -29,12 +29,10 @@ a:hover {
   font-size: 24px;
   background-color: white;
   padding: 10px 10px;
-  border-radius: 5px 5px 0 0;
 }
 
 #stats {
   font-size: 20px;
-  border-radius: 0;
 }
 
 .stats-title {
