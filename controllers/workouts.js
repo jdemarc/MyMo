@@ -107,7 +107,8 @@ function search(req, res) {
 
 // Function to generate current date and time
 function getCurrentDateTime() {
-    const workout = new Workout();
-    const dt = workout.date;
+    //Display date to user as EST. Store in database as UTC.
+    const dt = new Date(+new Date() - 4*60*60*1000)
+
     return dt.toISOString().slice(0, 16);
 }
