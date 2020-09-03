@@ -24,13 +24,15 @@ function showStats(req, res) {
             totalCalories = 0,
             totalWorkouts = 0;
 
+        // If stats is not undefined, perform calculations.
         if (stats.length) {
             totalDuration = convertTime(stats[0].durationSum);
             totalCalories = stats[0].calorieSum;
             totalWorkouts = stats[0].workoutSum;
         }
 
-        res.render('home', { title: 'MyMo', stats, totalDuration, totalCalories, totalWorkouts, user });
+        res.render('home', { title: 'MyMo', stats, 
+        totalDuration, totalCalories, totalWorkouts, user });
     });
 };
 

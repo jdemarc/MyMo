@@ -30,7 +30,7 @@ const workoutSchema = new Schema ({
         // This converts UTC to EST.
         // Let client do conversion.
         // default: Date.now
-        default: () => new Date(+new Date() - 4*60*60*1000)
+        default: Date.now
     },
 
     duration: {
