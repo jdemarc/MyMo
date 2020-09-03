@@ -7,11 +7,11 @@ module.exports = {
 }
 
 function create(req, res) {
-    // HANDLE DEFAULTS HERE
-    // if (!req.body.arrival) delete req.body.arrival;
     Workout.findById(req.params.id, function(err, workout) {
         workout.exercises.push(req.body);
         workout.save(function(err) {
+            if (err) console.log("Error adding exercise.");
+
             res.redirect(`/workouts/${workout._id}`);
         });
     });

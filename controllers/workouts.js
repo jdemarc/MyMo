@@ -12,16 +12,11 @@ module.exports = {
     search
 }
 
+// Display all workouts according to user logged in.
 function index(req, res) {
     Workout.find( {'user' : req.user.id} , function (err, workouts) {
             res.render('workouts/index', { workouts, title: 'My Workouts'});
     });
-
-    // Workout.findById(req.params.id)
-    // .populate('user').exec(function(err, workouts) {
-    //     console.log(workouts);
-    //     res.render('workouts/index', { workouts, title: 'My Workouts'});
-    // })
 }
 
 // When clicking the "add workout" link, render the workouts/new page.

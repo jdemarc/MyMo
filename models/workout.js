@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const exerciseSchema = new Schema ({
     name: {
         type: String,
-        match: /^[a-zA-Z0-9 ]*$/
+        match: /^[a-zA-Z0-9 -]*$/
     },
 
     muscle: {
