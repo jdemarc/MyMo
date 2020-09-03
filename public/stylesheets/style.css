@@ -28,7 +28,7 @@ a:hover {
 #user-tag, #stats {
   font-size: 24px;
   background-color: white;
-  padding: 10px 10px;
+  padding: 15px 15px;
 }
 
 #stats {
@@ -37,6 +37,10 @@ a:hover {
 
 .stats-title {
   font-weight: bold;
+}
+
+#stats-row {
+  gap: 10%;
 }
 
 #new-workout-form, #workout-index, #edit-workout-form {
