@@ -8,10 +8,9 @@ module.exports = {
 
 // Shows user's stats based on aggregation of workouts.
 function showStats(req, res) {
-
-    // _id: must be null for $group
     const user = req.user;
-
+    
+    // _id: must be null for $group
     Workout.aggregate([
         { $match: { user: ObjectId(req.user.id) } },
         { $group: { _id: null, durationSum: { $sum: "$duration" }, calorieSum: { $sum: "$calories"},

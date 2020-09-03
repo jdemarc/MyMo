@@ -46,10 +46,11 @@ If you decide to search for workouts and go into the details of someone else's w
 ## Technologies Used
 * Vanilla JavaScript
 * EJS
+* MongoDB
+* Express
 * Mongoose
 * Passport
 * OAuth
-* MongoDB
 * Bootstrap 4
 * HTML
 * CSS

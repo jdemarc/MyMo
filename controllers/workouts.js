@@ -80,6 +80,7 @@ function edit(req, res) {
     });
 }
 
+// Update workout properties.
 function update(req, res) {
     Workout.findByIdAndUpdate(req.params.id, 
         {   name: req.body.name,
@@ -88,7 +89,6 @@ function update(req, res) {
             calories: req.body.calories,
         }, function (err) {
             if (err) console.log('Failed to update workout.');
-
             console.log('Workout successfully updated.')
         
             res.redirect('/workouts/index');

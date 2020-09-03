@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');
 const Workout = require('../models/workout');
 
 module.exports = {
@@ -7,7 +6,6 @@ module.exports = {
 }
 
 function create(req, res) {
-
     Workout.findById(req.params.id, function(err, workout) {
         // Prevent a user with a different ID from adding exercises to a workout they did not create.
         if (req.user.id == workout.user) {
