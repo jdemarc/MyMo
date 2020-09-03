@@ -27,9 +27,6 @@ const workoutSchema = new Schema ({
 
     date: {
         type: Date,
-        // This converts UTC to EST.
-        // Let client do conversion.
-        // default: Date.now
         default: Date.now
     },
 

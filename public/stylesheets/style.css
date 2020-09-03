@@ -43,8 +43,9 @@ a:hover {
   gap: 10%;
 }
 
-#new-workout-form, #workout-index, #edit-workout-form {
+#new-workout-form, #workout-index, #edit-workout-form, #search-index {
   background: white;
+  border-radius: 0;
 }
 
 #icons {

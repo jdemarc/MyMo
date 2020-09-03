@@ -2,8 +2,6 @@ var express = require('express');
 var router = express.Router();
 const workoutsCtrl = require('../controllers/workouts');
 
-//TODO: Add isLoggedIn?
-
 router.get('/index', isLoggedIn, workoutsCtrl.index);
 router.get('/new', isLoggedIn, workoutsCtrl.new);
 router.get('/', isLoggedIn, workoutsCtrl.search);
