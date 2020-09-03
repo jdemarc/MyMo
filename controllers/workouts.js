@@ -1,5 +1,4 @@
 const Workout = require('../models/workout');
-const User = require('../models/user');
 
 module.exports = {
     index,
@@ -56,8 +55,10 @@ function create(req, res) {
 
 // This function will render the workout and allow user to add exercises.
 function show(req, res) {
+    const user = req.user.id;
+
     Workout.findById(req.params.id, function (err, workout) {
-        res.render('workouts/show', { workout, title: 'Workout Details'} );
+        res.render('workouts/show', { workout, user, title: 'Workout Details'} );
     })
 }
 
