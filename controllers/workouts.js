@@ -13,7 +13,8 @@ module.exports = {
 
 // Display all workouts according to user logged in.
 function index(req, res) {
-    Workout.find( {'user' : req.user.id} , function (err, workouts) {
+    Workout.find( {'user' : req.user.id} )
+    .populate('user').exec(function (err, workouts) {
             res.render('workouts/index', { workouts, title: 'My Workouts'});
     });
 }
@@ -57,8 +58,9 @@ function create(req, res) {
 function show(req, res) {
     const user = req.user.id;
 
-    Workout.findById(req.params.id, function (err, workout) {
-        res.render('workouts/show', { workout, user, title: 'Workout Details'} );
+    Workout.findById(req.params.id)
+    .populate('user').exec(function (err, workout) {
+        res.render('workouts/show', { workout, user, title: 'Workout'} );
     })
 }
 
@@ -99,7 +101,6 @@ function search(req, res) {
     Workout.find(modelQuery, function(err, foundWorkouts) {
         if (err) return next(err);
             res.render('workouts/search', { foundWorkouts, title: 'Search Results'});
-        
     });
 }
 //-----------------------------------------------------------------------------------

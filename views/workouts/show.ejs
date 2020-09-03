@@ -2,7 +2,13 @@
 
 <ul class="list-group" id="new-workout-form">
     <li class="list-group-item">
-        <div class="form-title"> <%= title %> </div>
+        <div class="form-title"> <%= title %>
+        <% if (workout.user) { %>
+            created by <%= workout.user['name'] %>
+        <% } else { %>
+            created by someone.
+        <% } %>
+        </div>
     </li>
 
     <li class="list-group-item">
@@ -45,14 +51,15 @@
         </div>
     </li>
     <li class="list-group-item text-center">
-        <% if (user == workout.user) { %>
-        <button type="submit" class="btn btn-dark">
+
+        <% if (user == workout.user['_id']) { %>
+            <button type="submit" class="btn btn-dark">
         <% } else { %>
-        <button class="btn btn-dark" disabled>
+            <button class="btn btn-dark" disabled>
         <% } %>
             <svg width="1em" height="1em" viewBox="3 4 10 10" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                </svg>
+            <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+            </svg>
         </button>
         </form>
     </li>
@@ -82,7 +89,7 @@
                     <div class="col-sm"><%= e.description %></div>
                     <div class="col-sm">
                         <form action="/exercises/<%= e.id %>?_method=DELETE" method="POST">
-                            <% if (user == workout.user) { %>
+                            <% if (user == workout.user['_id']) { %>
                             <button class="btn btn-dark my-2 my-sm-0" type="submit">
                             <% } else { %>
                                 <button class="btn btn-dark my2 my-sm-0" disabled>
