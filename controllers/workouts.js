@@ -94,11 +94,7 @@ function update(req, res) {
 }
 
 function search(req, res) {
-    console.log(req.query);
-
     let modelQuery = req.query.name ? { name: new RegExp(req.query.name, 'i')} : {};
-
-    let sortKey = 'title';
 
     Workout.find(modelQuery, function(err, foundWorkouts) {
         if (err) return next(err);
